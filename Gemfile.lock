@@ -1,14 +1,20 @@
 GIT
   remote: https://github.com/12joan/png_to_pixil
-  revision: 4af61b54bbd85d15b556234a90cea121e797b868
+  revision: 9236d62b02cc736ef34fa1513775a8f8c4418544
   specs:
-    png_to_pixil (0.1.0)
+    png_to_pixil (0.1.1)
+      fastimage (~> 2.1)
+      json (~> 2.3)
+      ostruct (~> 0.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    fastimage (2.1.7)
+    json (2.3.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    ostruct (0.2.0)
     rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
@@ -26,6 +32,9 @@ PLATFORMS
 DEPENDENCIES
   png_to_pixil!
   sinatra
+
+RUBY VERSION
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
