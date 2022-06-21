@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-    
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/index.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <!-- Search Console verification -->
     <meta name="google-site-verification" content="wF8fcyS7RZv5s6xmdFL-r9ksNuMNwCi8OFAq_xocRIE" />
   </head>
 
-  <body style="margin: 0; padding: 0; background-color: var(--color);">
-    <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-      <form action="upload" method="post" enctype="multipart/form-data" style="background-color: white;">
-        <label for="file">Upload a PNG file</label>
-        <input type="file" id="file" name="file" required>
+  <body class="flex flex-col items-center min-h-screen p-8 bg-gray-50">
+    <main class="my-auto max-w-screen-sm w-full">
+      <form id="form" action="upload" method="post" enctype="multipart/form-data" class="flex flex-col gap-4">
+        <h1 class="text-3xl">Convert PNG to Pixilart</h1>
 
-        <button type="submit">Convert to .pixil</button>
+        <p class="font-light text-lg">
+          Convert a .png file to the .pixil format used by <a href="https://www.pixilart.com/" class="underline">Pixilart</a>
+        </p>
+
+        <button id="file-target" type="button" class="flex flex-col justify-center items-center w-full h-64 bg-white rounded-lg border-2 border-gray-300 border-dashed hover:bg-gray-50">
+          <svg class="mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+          </svg>
+
+          <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+          <p class="text-xs text-gray-500">PNG file to convert</p>
+        </button>
+
+        <input type="file" name="file" id="file" class="hidden" accept="image/png" />
+
+        <div id="output" class="min-h-6 flex flex-col gap-4"></div>
       </form>
-    </div>
+    </main>
+
+    <footer class="mt-auto pt-8 font-light text-gray-500">
+      Built by <a href="https://anderbell.studio/" class="underline font-normal">Anderbell Studios</a> • <a href="https://github.com/12joan/png_to_pixil_site" class="underline font-normal">Source code</a>
+    </footer>
+
+    <script src="/index.js"></script>
   </body>
 </html>
