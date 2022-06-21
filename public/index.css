@@ -1,0 +1,7 @@
+.cursor-copy {
+  cursor: copy;
+}
+
+#file-target > * {
+  pointer-events: none;
+}
