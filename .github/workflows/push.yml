@@ -3,30 +3,26 @@ name: On push
 on: push
 
 jobs:
-  test:
+  docker:
+    name: 'Test Docker image'
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - run: docker compose up -d --build
-    - run: sleep 3
-    - run: docker compose exec -T web curl -f -LI http://localhost:3000
-    - run: docker compose down
+      - uses: actions/checkout@v6
+      - run: docker compose -f docker-compose.production.yml up -d --build --wait
+      - run: curl -Is http://localhost:3000/healthcheck
 
-  deploy_production:
-    needs: test
+  deploy:
+    name: 'Deploy'
+    needs: [docker]
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - uses: docker/login-action@v3
-      with:
-        registry: ${{ secrets.REGISTRY_URL }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+    concurrency:
+      group: deploy
+      cancel-in-progress: true
 
-    - uses: docker/build-push-action@v6
-      with:
-        push: true
-        tags: ${{ secrets.REGISTRY_URL }}/${{ secrets.REGISTRY_REPO }}:production
+    steps:
+      - uses: actions/checkout@v6
+      - uses: 12joan/build-and-push-image@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

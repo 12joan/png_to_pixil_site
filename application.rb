@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'png_to_pixil'
 
+get '/healthcheck' do
+  'OK'
+end
+
 get '/' do
   erb :index
 end
