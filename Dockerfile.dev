@@ -1,6 +1,6 @@
 FROM ruby:4.0.2-alpine
 
-RUN apk add build-base git
+RUN apk add --update --no-cache build-base git imagemagick imagemagick-dev imagemagick-libs
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN bundle install

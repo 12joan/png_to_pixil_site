@@ -1,6 +1,6 @@
 FROM ruby:4.0.2-alpine
 
-RUN apk add build-base curl git
+RUN apk add --update --no-cache build-base curl git imagemagick imagemagick-dev imagemagick-libs
 RUN bundle config --global frozen 1
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./

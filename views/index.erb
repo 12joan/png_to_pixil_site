@@ -13,10 +13,10 @@
   <body class="flex flex-col items-center min-h-screen p-8 bg-gray-50">
     <main class="my-auto max-w-screen-sm w-full">
       <form id="form" action="upload" method="post" enctype="multipart/form-data" class="flex flex-col gap-4">
-        <h1 class="text-3xl">Convert PNG to Pixilart</h1>
+        <h1 class="text-3xl">Convert image to Pixilart</h1>
 
         <p class="font-light text-lg">
-          Convert a .png file to the .pixil format used by <a href="https://www.pixilart.com/" class="underline">Pixilart</a>
+          Convert a regular image file to the .pixil format used by <a href="https://www.pixilart.com/" class="underline">Pixilart</a>
         </p>
 
         <button id="file-target" type="button" class="flex flex-col justify-center items-center w-full h-64 bg-white rounded-lg border-2 border-gray-300 border-dashed hover:bg-gray-50">
@@ -25,10 +25,10 @@
           </svg>
 
           <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-          <p class="text-xs text-gray-500">PNG file to convert</p>
+          <p class="text-xs text-gray-500">Image file to convert</p>
         </button>
 
-        <input type="file" name="file" id="file" class="hidden" accept="image/png" />
+        <input type="file" name="file" id="file" class="hidden" accept="image/*" />
 
         <div id="output" class="min-h-6 flex flex-col gap-4"></div>
       </form>
