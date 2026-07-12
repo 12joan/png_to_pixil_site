@@ -1,23 +1,25 @@
 GIT
-  remote: https://github.com/12joan/png_to_pixil
-  revision: 9236d62b02cc736ef34fa1513775a8f8c4418544
+  remote: https://github.com/12joan/png_to_pixil.git
+  revision: a4bed43e221f614c150917bf6666724f9655c169
   specs:
-    png_to_pixil (0.1.1)
-      fastimage (~> 2.1)
-      json (~> 2.3)
-      ostruct (~> 0.1)
+    png_to_pixil (0.2.0)
+      base64 (~> 0.3)
+      json (~> 2.21)
+      ostruct (~> 0.6)
+      rmagick (~> 7.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.3.0)
-    fastimage (2.4.1)
-    json (2.19.3)
+    json (2.21.0)
     logger (1.7.0)
     mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.5)
+    observer (0.1.2)
     ostruct (0.6.3)
+    pkg-config (1.6.5)
     puma (7.2.1)
       nio4r (~> 2.0)
     rack (3.2.6)
@@ -30,6 +32,9 @@ GEM
       rack (>= 3.0.0)
     rackup (2.3.1)
       rack (>= 3)
+    rmagick (7.0.5)
+      observer (~> 0.1)
+      pkg-config (~> 1.4)
     ruby2_keywords (0.0.5)
     sinatra (4.2.1)
       logger (>= 1.6.0)
@@ -45,7 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  png_to_pixil!
+  png_to_pixil (~> 0.2)!
   puma (~> 7.2)
   rackup (~> 2.3)
   sinatra (~> 4.2)

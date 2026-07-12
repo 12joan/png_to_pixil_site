@@ -17,8 +17,8 @@ post '/upload' do
     return
   end
 
-  output_file_name = input_file_name.sub(/\.png$/, '.pixil')
+  output_file_name = input_file_name.sub(/\.[^.]+$/, '.pixil')
   content_type 'application/octet-stream'
   response['Content-Disposition'] = 'attachment; filename="%s"' % output_file_name
-  PngToPixil::Converter.new(input_file).to_pixil.to_json
+  PngToPixil::Converter.new(File.open(input_file)).to_pixil.to_json
 end

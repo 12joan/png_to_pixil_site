@@ -37,12 +37,12 @@ fileTarget.addEventListener('drop', event => {
 
   const file = event.dataTransfer.files[0]
 
-  if (file && file.type === 'image/png') {
+  if (file && file.type.startsWith('image/')) {
     const dataTransfer = new DataTransfer()
     dataTransfer.items.add(file)
     fileInput.files = dataTransfer.files
     handleFileSelected()
-  } else alert('Please drop a PNG file')
+  } else alert('Please drop an image file')
 })
 
 fileInput.addEventListener('change', handleFileSelected)
