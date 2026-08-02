@@ -20,7 +20,7 @@ GEM
     observer (0.1.2)
     ostruct (0.6.3)
     pkg-config (1.6.5)
-    puma (7.2.1)
+    puma (8.0.2)
       nio4r (~> 2.0)
     rack (3.2.6)
     rack-protection (4.2.1)
@@ -51,7 +51,7 @@ PLATFORMS
 
 DEPENDENCIES
   png_to_pixil (~> 0.2)!
-  puma (~> 7.2)
+  puma (~> 8.0)
   rackup (~> 2.3)
   sinatra (~> 4.2)
 
