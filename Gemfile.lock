@@ -20,7 +20,7 @@ GEM
     observer (0.1.2)
     ostruct (0.6.3)
     pkg-config (1.6.5)
-    puma (8.0.2)
+    puma (8.0.3)
       nio4r (~> 2.0)
     rack (3.2.8)
     rack-protection (4.2.1)
